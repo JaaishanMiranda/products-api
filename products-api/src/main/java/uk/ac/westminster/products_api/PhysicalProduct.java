@@ -8,15 +8,20 @@ public class PhysicalProduct extends Product {
     private double weightKg;
     private String dimensions;
 
-    // no-arg constructor: Jackson needs this to build an object from JSON
     public PhysicalProduct() {
     }
 
     public PhysicalProduct(Long id, String name, double price,
                            double weightKg, String dimensions) {
-        super(id, name, price); // must be the first statement
+        super(id, name, price);
         this.weightKg = weightKg;
         this.dimensions = dimensions;
+    }
+
+    @Override
+    public String getSummary() {
+        return "Physical: " + getName()
+                + " | Weight: " + weightKg + "kg";
     }
 
     public double getWeightKg() {
