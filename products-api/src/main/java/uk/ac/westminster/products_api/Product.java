@@ -1,6 +1,6 @@
 package uk.ac.westminster.products_api;
 
-public class Product {
+public abstract class Product {
     private Long id;
     private String name;
     private double price;
@@ -14,9 +14,8 @@ public class Product {
         this.price = price;
     }
 
-    public String getSummary() {
-        return getName() + " — £" + getPrice();
-    }
+    // No body: Product can't answer this, so every concrete subclass MUST.
+    public abstract String getSummary();
 
     public Long getId() { return id; }
     public String getName() { return name; }
