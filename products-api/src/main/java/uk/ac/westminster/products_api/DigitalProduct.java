@@ -4,15 +4,20 @@ public class DigitalProduct extends Product {
     private String downloadUrl;
     private double fileSizeMB;
 
-    // no-arg constructor: Jackson needs this to build an object from JSON
     public DigitalProduct() {
     }
 
     public DigitalProduct(Long id, String name, double price,
                           String downloadUrl, double fileSizeMB) {
-        super(id, name, price); // must be the first statement
+        super(id, name, price);
         this.downloadUrl = downloadUrl;
         this.fileSizeMB = fileSizeMB;
+    }
+
+    @Override
+    public String getSummary() {
+        return "Digital: " + getName()
+                + " | Download: " + downloadUrl;
     }
 
     public String getDownloadUrl() {

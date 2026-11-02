@@ -14,6 +14,10 @@ public class Product {
         this.price = price;
     }
 
+    public String getSummary() {
+        return getName() + " — £" + getPrice();
+    }
+
     public Long getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
